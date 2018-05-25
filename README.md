@@ -180,31 +180,30 @@
 [iOS开发过程中优雅的调试数据库](https://www.jianshu.com/p/c5d6d329731b)
 
 * 打开手机查看手机连接的wifi的ip地址(看下图:注意手机连上的wifi要跟你电脑连上的wifi是同一个)
-![wifi图片](/Users/jiangpeng/Desktop/60C6801F-C3AB-4056-88DD-4BCD50702DD1.png)
+![wifi图片](https://upload-images.jianshu.io/upload_images/1375938-5b1d7982092e67e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240))
 
 
 * 在AppDelegate里面didFinishLaunchingWithOptions方法添加配置端口9002,还需要配置你数据库存在的位置,默认情况下会自动从NSHomeDirectory(),
  Library/Cache, Documents目录找
 
 	```
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	- (BOOL)application:(UIApplication *)application 	didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 	{
     // Override point for customization after application launch.
     
     //配置数据库放在哪里
-    //NSString *resourceDirectory = [[NSBundle mainBundle] resourcePath];
-    NSString *databaseDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/JKBD"];
-//    NSString *documentDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-//    NSString *cacheDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Cache"];
-   [[DebugDatabaseManager shared] startServerOnPort:9002 directories:@[databaseDirectory]];
-
-    return YES;
-}
+    //NSString *resourceDirectory = [[NSBundle mainBundle] 	resourcePath];
+   	 NSString *databaseDirectory = [NSHomeDirectory() 	stringByAppendingPathComponent:@"Documents/JKBD"];
+	//NSString *documentDirectory = [NSHomeDirectory() 	stringByAppendingPathComponent:@"Documents"];
+	//NSString *cacheDirectory = [NSHomeDirectory() 	stringByAppendingPathComponent:@"Library/Cache"];
+   	[[DebugDatabaseManager shared] startServerOnPort:9002 	directories:@[databaseDirectory]];
+   	 return YES;
+	}
 
 	```
 
 * 最后运行app 在浏览器输入您的手机ip:9002 例如我的:http://192.168.90.145:9002
 
-![](/Users/jiangpeng/Desktop/D8D1396F-4BA2-4812-AB3D-C213F58DDE9B.png)
+![](https://upload-images.jianshu.io/upload_images/1375938-0ceda2a50ced9dc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-代码移至我的github:[欢迎指正]()
+代码移至我的github:[欢迎指正](https://github.com/PengJiang520/HZORM.git)
